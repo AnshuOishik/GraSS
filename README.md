@@ -1,7 +1,7 @@
-                         ****************************** GraSS ****************************
-							              GraSS: Grammatical, Statistical, and Substitution rule based
-							                          https://github.com/AnshuOishik/GraSS
-								                                Copyright (C) 2023 
+                       ****************************** GraSS ****************************
+			GraSS: Grammatical, Statistical, and Substitution rule based
+					https://github.com/AnshuOishik/GraSS
+						Copyright (C) 2023 
 =============================================================================================================================
 Introduction
 To utilize the code, please use the Notepad++ editor.
