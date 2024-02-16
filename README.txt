@@ -1,35 +1,31 @@
-                       ****************************** GraSS ****************************
+		     ****************************** GraSS ****************************
 			GraSS: Grammatical, Statistical, and Substitution rule based
 					https://github.com/AnshuOishik/GraSS
-						Copyright (C) 2023 
+						Copyright (C) 2024 
 =============================================================================================================================
 Introduction
 To utilize the code, please use the Notepad++ editor.
 Java has been utilized by us in the implementation.
-Please use Linux as your operating system.
-Please confirm that the physical memory on your computer is larger than 10 GB.
+Please confirm that the physical memory on your computer is larger than 13 GB.
 =============================================================================================================================
-GraSS: Grammatical, Statistical, and Substitution rule based
-
-Compilation Command:
+# Compilation Command:
 > javac -d . *.java
 
-Execution Command:
+# Execution Command:
 Compression:
-> java -Xms10240m rgcok.RGCOK chr.fa comp 8
+> java -Xmx13312m SSG.SSG compress In.fa
+
 Decompression:
-> java -Xms10240m rgcok.RGCOK chr.fa decomp 8
+> java SSG.SSG decompress
 
 Notice:
-# The list of target file directories and the reference file path (the first line) are both found in chr.fa
-# "decomp" is the argument for decompression, and "comp" for compression
-# The final compressed file created by the BSC compressor is called "BscC.bsc".
-# The number of threads is eight (4, by default, is the optional value)
-# -Xms10240m is the initial allocation of memory (MB)
-4. Please place the executable "bsc" in the main class file's directory.
-5. Kindly set "chmod 0777" for "bsc" mode.
+# FinalBsc.bsc is the final compressed file that the BSC compressor produces.
+# The decompressed file name is Final.SSG
+# -Xmx13312m is the maximum allocation of heap memory (MB) size.
+# Please place the executable "bsc" in the main class file's directory.
+# Kindly set "chmod 0777" for "bsc" mode.
 =============================================================================================================================
-Commands for "bsc" executable file generation from available code at https://github.com/IlyaGrebnov/libbsc
+Commands for platform dependent "bsc" executable file generation from available code at https://github.com/IlyaGrebnov/libbsc
 Compilation commands:
 > g++ -c libbsc/adler32/adler32.cpp
 > g++ -c libbsc/bwt/libsais/libsais.c
@@ -42,11 +38,12 @@ Compilation commands:
 > g++ -c libbsc/libbsc/libbsc.cpp
 > g++ -c libbsc/lzp/lzp.cpp
 > g++ -c libbsc/platform/platform.cpp
+# Please change the platform.cpp file. In lines 51 and 66, change 'MEM_LARGE_PAGES' in Linux (Ubuntu) to 'MEM_4MB_PAGES' in Windows 10.
 > g++ -c libbsc/st/st.cpp
 > g++ -c bsc.cpp
 
 Linking command:
 > g++ -o bsc bsc.o adler32.o bwt.o coder.o detectors.o libbsc.o libsais.o lzp.o platform.o preprocessing.o qlfc.o qlfc_model.o st.o
-=============================================================================================================================
+=======================================================================================================================================
 ### Contacts 
 Please send an email to <subhankar.roy07@gmail.com> if you experience any issues.
