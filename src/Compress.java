@@ -12,7 +12,7 @@ class Compress{
 	public static int[] seqLineLen; //Store FASTA file first line length
 	public static int[] seqBlockLen; //Store FASTA file  block length
 	public static int[] seqSpecialIndex; //Store FASTA file  other char index
-	public static int[] seqSpecialChar; //Store FASTA file  other char
+	public static byte[] seqSpecialChar; //Store FASTA file  other char
 	static int iden = 0; //Store number of id = line length = sequence block length
 	static int lowVecLen = 0;
 	static int seqCodeLen = 0;
@@ -46,7 +46,7 @@ class Compress{
 		seqLineLen = new int[vec_size2]; 
 		seqBlockLen = new int[vec_size2];
 		seqSpecialIndex = new int[vec_size3];
-		seqSpecialChar = new int[vec_size3];
+		seqSpecialChar = new byte[vec_size3];
 		BufferedReader br = null;
 		File file = new File(path);
 
