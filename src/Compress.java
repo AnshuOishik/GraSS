@@ -99,7 +99,7 @@ class Compress{
 						}
 						else{//If FASTA file contain special characters except A,C,G,T/U,N
 							seqSpecialIndex[seqSpecialLen] = (charLen-1)-index; 
-							seqSpecialChar[seqSpecialLen] = ch-65;
+							seqSpecialChar[seqSpecialLen] = (byte)(ch-65);
 							seqSpecialLen++;
 							index = charLen;
 						}
@@ -198,7 +198,8 @@ class Compress{
 				bw.write(seqSpecialChar[i] + " ");
             }
 			bw.flush();
-			seqSpecialIndex = seqSpecialChar = null;
+			seqSpecialIndex = null;
+			seqSpecialChar = null;
         } catch (IOException e) {
             System.out.println("e7 =  "+e);
         }
