@@ -1,5 +1,5 @@
 # clone all repository from github
-Benchmark Compressors down,oading linkS:
+Benchmark Compressors downloading linkS:
 GeCo3: https://github.com/cobilab/geco3
 GeCo2: https://github.com/cobilab/geco2 
 GeCo: https://github.com/cobilab/geco
