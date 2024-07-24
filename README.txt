@@ -19,6 +19,7 @@ Decompression:
 > java SSG.SSG decompress
 
 Notice:
+# "compress" is the argument for compression, and "decompress" for decompression
 # FinalBsc.bsc is the final compressed file that the BSC compressor produces.
 # The decompressed file name is Final.SSG
 # -Xmx13312m is the maximum allocation of heap memory (MB) size.
