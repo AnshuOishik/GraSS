@@ -13,7 +13,7 @@ Please confirm that the physical memory on your computer is larger than 13 GB.
 
 # Execution Command:
 Compression:
-> java -Xmx13312m SSG.SSG compress In.fa
+> java -Xmx13312m SSG.SSG compress <Input File Path>
 
 Decompression:
 > java SSG.SSG decompress
