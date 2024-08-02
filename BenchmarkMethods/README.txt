@@ -11,9 +11,9 @@
 # Executing the state-of-the-art compressors GeCo, GeCo2, geCo3 and Jarvis:
 
 # Install miniconda (https://docs.anaconda.com/miniconda/#quick-command-line-install) then run the following commands
-conda install -y -c bioconda geco2
-conda install -y -c bioconda geco3
-conda install -y -c bioconda jarvis
+# For GeCo2: conda install -y -c bioconda geco2
+# For GeCo3: conda install -y -c bioconda geco3
+# For Jarvis: conda install -y -c bioconda jarvis
 
 # Modify geco and jarvis (modify garbage in defs.h and common.c)
 
