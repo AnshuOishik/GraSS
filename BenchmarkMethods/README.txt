@@ -17,7 +17,7 @@
 
 # Modify geco and jarvis (modify garbage in defs.h and common.c)
 
-# Add cpuUsage.c to to repository for Memory & CPU usage
+# Add cpuUsage.c to the repository for Memory & CPU usage
 
 # Modify geco(1,2,3).c and gede(1,2,3).c and Jarvis.c for Memory & CPU usage
 
