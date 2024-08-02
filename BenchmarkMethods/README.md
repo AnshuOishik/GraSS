@@ -55,4 +55,5 @@ make clean
 
 # To run other compressor please use the readme file provided in the corresponding compressor folder
 
-# To convert the file format, please utilize the provided link: https://github.com/KirillKryukov/scb/tree/master/seq-tools-c.
+# To change the file format, please use the code supplied in the following link:
+https://github.com/KirillKryukov/scb/tree/master/seq-tools-c.
