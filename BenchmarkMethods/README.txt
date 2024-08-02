@@ -8,6 +8,8 @@
 # DSRC 2: https://github.com/lrog/dsrc
 # minicom: https://github.com/yuansliu/minicom
 
+# To use the above compressor, please cite the corresponding papers.
+
 # Executing the state-of-the-art compressors GeCo, GeCo2, geCo3 and Jarvis:
 
 # Install miniconda (https://docs.anaconda.com/miniconda/#quick-command-line-install) then run the following commands
@@ -15,7 +17,9 @@
 # For GeCo3: conda install -y -c bioconda geco3
 # For Jarvis: conda install -y -c bioconda jarvis
 
-# Modify geco and jarvis (modify garbage in defs.h and common.c)
+# We have modified and added the following to the original codes:
+
+# We have modified geco and jarvis (modify garbage in defs.h and common.c)
 
 # Add cpuUsage.c to the repository for Memory & CPU usage
 
