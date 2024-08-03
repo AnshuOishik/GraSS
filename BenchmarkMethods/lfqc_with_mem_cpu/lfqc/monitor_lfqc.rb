@@ -39,7 +39,10 @@ def monitor_lfqc(command, output_file)
 end
 
 # Replace 'your_lfqc_command_here' with the actual command to run lfqc
-lfqc_command = "ruby lfqc.rb ../large_test.fastq"
+# To compress
+lfqc_command = "ruby lfqc.rb ../file.fastq"
+# To decompress
+lfqc_command = "ruby lfqcd.rb ../file.fastq.lfqc"
 output_file = "lfqc_usage.csv"
 
 monitor_lfqc(lfqc_command, output_file)
