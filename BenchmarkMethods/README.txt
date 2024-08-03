@@ -25,7 +25,7 @@
 
 # Modify geco(1,2,3).c and gede(1,2,3).c and Jarvis.c for Memory & CPU usage
 
-# Make
+# Make (To Compile)
 cp Makefile.linux Makefile2.linux
 mv Makefile2.linux Makefile
 make
