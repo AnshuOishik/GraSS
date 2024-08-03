@@ -21,28 +21,28 @@ Change directory to lfqc/
 ## To compress:
 
 ```
-ruby lfqc.rb file.fastq  
+ruby monitor_lfqc.rb file.fastq  
 ```
 
 Creates archive file.fastq.lfqc
 
 ```
-ruby lfqc.rb -ls454 file.fastq
-ruby lfqc.rb -solid file.fastq
-ruby lfqc.rb -solexa file.fastq
+ruby monitor_lfqc.rb -ls454 file.fastq
+ruby monitor_lfqc.rb -solid file.fastq
+ruby monitor_lfqc.rb -solexa file.fastq
 ``` 
 Same as above but specifies type of dataset
 
 ## To uncompress:
 
 ```
-ruby lfqcd.rb file.fastq.lfqc
+ruby monitor_lfqc.rb file.fastq.lfqc
 ```
 
 Uncompresses to file.fastq (dataset type does not matter)
 
 ```
-ruby lfqcd.rb file.fastq.lfqc output.fastq 
+ruby monitor_lfqc.rb file.fastq.lfqc output.fastq 
 ```
 
 Uncompresses to output.fastq 
