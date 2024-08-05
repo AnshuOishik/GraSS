@@ -1,4 +1,4 @@
-# Clone all repository from github:
+# Clone all repositories from github:
 # GeCo3: https://github.com/cobilab/geco3
 # GeCo2: https://github.com/cobilab/geco2 
 # GeCo: https://github.com/cobilab/geco
@@ -23,7 +23,7 @@
 
 # Add cpuUsage.c to the repository for Memory & CPU usage
 
-# Modify geco(1,2,3).c and gede(1,2,3).c and Jarvis.c for Memory & CPU usage
+# Modify geco(1, 2, 3).c and gede(1, 2, 3).c and Jarvis.c for Memory & CPU usage
 
 # Make (To Compile)
 cp Makefile.linux Makefile2.linux
