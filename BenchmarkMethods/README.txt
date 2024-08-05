@@ -17,7 +17,7 @@
 # For GeCo3: conda install -y -c bioconda geco3
 # For Jarvis: conda install -y -c bioconda jarvis
 
-# We have modified and added the following to the original codes:
+# We have modified and added the following to the original codes to measure memory and CPU usage:
 
 # We have modified geco and jarvis (modify garbage in defs.h and common.c)
 
@@ -50,9 +50,9 @@ make clean
 ./JARVIS -v -l <level> CompressedFileName
 ./JARVIS -v -d DecompressedFileName
 
-# We calculate CPU usage over a period of time and then give avg usage, same for Memory usage.
+# We calculate CPU usage over a period of time and then give average usage; the same is true for memory usage.
 
-# To run other compressor please use the readme file provided in the corresponding compressor folder
+# To run other compressors, please use the readme file provided in the corresponding compressor folder
 
 # To change the file format, please use the code supplied in the following link:
 https://github.com/KirillKryukov/scb/tree/master/seq-tools-c.
