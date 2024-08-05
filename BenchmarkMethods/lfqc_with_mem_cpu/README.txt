@@ -1,3 +1,6 @@
+# Colone the compressor
+git clone https://github.com/mariusmni/lfqc
+
 # Prerequisites
 Linux system with at least 4gb of RAM (preferably 8)
 Ruby
