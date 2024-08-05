@@ -1,4 +1,4 @@
-# Clone the compressor using the following command
+# Clone the compressor using the following command:
 git clone https://github.com/yuansliu/minicom.git
 
 # Please modify decompress.c, minicommain.c, and Makefile. 
