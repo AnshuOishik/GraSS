@@ -7,8 +7,8 @@
 # DSRC 2: https://github.com/lrog/dsrc
 # LQFC: https://github.com/mariusmni/lfqc
 # Minicom: https://github.com/yuansliu/minicom
-# https://github.com/facebook/zstd.git
-# https://www.gnu.org/software/gzip/
+# Zstd: https://github.com/facebook/zstd.git
+# Gzip: https://www.gnu.org/software/gzip/
 # https://calc.biokirr.com/sequence-compression-benchmark/ (UHT, NUHT, DNA-COMPACT)
 
 # To use the above compressor, please cite the corresponding papers.
