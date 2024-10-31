@@ -3,10 +3,13 @@
 # GeCo2: https://github.com/cobilab/geco2 
 # GeCo: https://github.com/cobilab/geco
 # Jarvis: https://github.com/cobilab/jarvis
-# LQFC: https://github.com/mariusmni/lfqc
-# fqzcomp: https://sourceforge.net/projects/fqzcomp/
+# FQZComp: https://sourceforge.net/projects/fqzcomp/
 # DSRC 2: https://github.com/lrog/dsrc
-# minicom: https://github.com/yuansliu/minicom
+# LQFC: https://github.com/mariusmni/lfqc
+# Minicom: https://github.com/yuansliu/minicom
+# https://github.com/facebook/zstd.git
+# https://www.gnu.org/software/gzip/
+# https://calc.biokirr.com/sequence-compression-benchmark/ (UHT, NUHT, DNA-COMPACT)
 
 # To use the above compressor, please cite the corresponding papers.
 
@@ -55,4 +58,6 @@ make clean
 # To run other compressors, please use the readme file provided in the corresponding compressor folder
 
 # To change the file format, please use the code supplied in the following link:
-https://github.com/KirillKryukov/scb/tree/master/seq-tools-c.
+https://github.com/KirillKryukov/scb/tree/master/seq-tools-c
+or
+Supplementary Material of GeCo3
