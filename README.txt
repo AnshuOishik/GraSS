@@ -6,7 +6,7 @@
 Introduction
 To utilize the code, please use the Notepad++ editor.
 Java has been utilized by us in the implementation.
-Please confirm that the physical memory on your computer is larger than 13 GB.
+Presently available in the Linux environment.
 =============================================================================================================================
 # Compilation Command:
 > javac -d . *.java
