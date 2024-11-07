@@ -11,7 +11,7 @@
 # Gzip: https://www.gnu.org/software/gzip/
 # https://calc.biokirr.com/sequence-compression-benchmark/ (UHT, NUHT, DNA-COMPACT)
 
-# To use the above compressor, please cite the corresponding papers.
+######### To use the above compressor, please cite the corresponding papers #########
 --------------------------------------------------------------------------------------------------------------------------
 # Executing the state-of-the-art compressors GeCo, GeCo2, geCo3 and Jarvis:
 
@@ -27,6 +27,8 @@
 # Add cpuUsage.c to the repository for Memory & CPU usage
 
 # Modify geco(1, 2, 3).c and gede(1, 2, 3).c and Jarvis.c for Memory & CPU usage
+
+# For user convenience, we are retaining all of the benchmark compressors' files (the updated file names are listed above).
 
 # Make (To Compile)
 cp Makefile.linux Makefile2.linux
@@ -114,9 +116,112 @@ time ./gzip -9 ../../RNA/SILVA_132_LSURef_tax_silva.fasta
 # decompress a FILE
 time ./gzip -d ../../DNACorpus/AeCa.gz
 time ./gzip -d ../../RNA/SILVA_132_LSURef_tax_silva.fasta.gz
+------------------------------------------------------------------------------------------------------------------------------
+# FQZComp
+# Compilation
+cp Makefile Makefile2
+mv Makefile2 Makefile
+make
+
+# Run
+# To compress:
+time ./fqz_comp -s1 -q3 ../DNA/In.fastq ../DNA/comp.fqz
+	
+# To decompress:
+time ./fqz_comp -d ../DNA/comp.fqz ../DNA/Out.fastq
+	
+time ./fqz_comp -d -X ../DNA/comp.fqz ../DNA/Out.fastq [To pass checksum failures use -X in the decompressor]
+	
+# Options:
+-s <level>
+    Specifies the size of the sequence context. Increasing this will
+    improve compression on large data sets, but each increment in
+    level will quadruple the memory used by the sequence compression
+    steps. Further more increasing it too high may harm compression on
+    small files.
+
+    Specifying a "+" after level will use two context sizes (eg -s5+);
+    a small fixed size and the <level> specified. This greatly helps
+    compression of small files and also slightly helps compression of
+    larger files.
+
+    Defaults to -s3.
+
+-q <level>
+    Specifies the degree of quality compression, with a value from -q1
+    to -q3.
+
+    -q1
+        Uses the previous quality value and the maximum of the two
+        previous to that as a context for predicting the next value.
+        Combined this adds 12 bits of context.
+
+    -q2
+        In addition to -q1, this extends the context by adding a
+        single bit to indicate if the 2nd and 3rd previous qualities
+        are identical to each other, as well as using 3 bits of
+        context for the running-delta. (A measure of how variable a
+	string of quality values are.) This is the default level.
+
+     -q3
+        As per -q2, but also adds 4 bits worth of context holding the
+        position each the sequence.
+
+The caveats and other informations in the original source. 
+https://sourceforge.net/projects/fqzcomp/
+---------------------------------------------------------------------------------------------------------------------------
+# Minicom
+# Please modify decompress.c, minicommain.c, and Makefile. 
+# For memory and CPU usage, add cpuUsage.c to the repository.
+
+# To install
+cd minicom
+sudo apt-get install libz-dev
+sh install.sh
+
+# In the script `install.sh`, it downloads the tools *bsc* and *p7zip*. Please make sure the two tools can be ran on your machine.
+
+# To compress:
+./minicom -r ../DNA/IN.fastq 						
+
+# Minicom creates compressed file 'IN_comp.minicom'
+
+# To decompress:
+./minicom -d ../DNA/IN_comp.minicom
+---------------------------------------------------------------------------------------------------------------------------------
+#Lfqc
+# Prerequisites
+Linux system with at least 4GB of RAM (preferably 8)
+C++
+Ruby
+
+# Installation
+To measure CPU and memory usage we need a 'sys-proctable' library.
+Run the following command, if the 'sys-proctable' is not installed. 
+
+gem install sys-proctable
+    
+# To Compress
+
+cd lfqc/lfqc
+
+To execute this program run the following command
+
+ruby monitor_lfqc.rb "ruby lfqc.rb ../DNA/IN.fastq"
+
+# Note:
+Here, the monitor_lfqc.rb is the program for cpu utilization monitoring, the IN.fastq is the file to be compressed and lfqc.rb is the program for compression using LFQC algorithm.
+
+# To Decompress
+
+ruby monitor_lfqc.rb "ruby lfqcd.rb ../DNA/IN.fastq.lfqc"
+
+[Note: The decompressed file will be generated in the same location and will overwrite the original file.]
+
+Notice:
+If the executable files of the backbone compressors zpaq702 and lpaq8 does not work then, please create executable files for zpaq702 and lpaq8 using the command 'make' [You make need to fix the errors during compilation.].
 ---------------------------------------------------------------------------------------------------------------------------
 # We calculate CPU usage over a period of time and then give average usage; the same is true for memory usage.
-# To run other compressors, please use the readme file provided in the corresponding compressor folder
 ---------------------------------------------------------------------------------------------------------------------------
 # To change the file format, please use the code supplied in the following link:
 https://github.com/KirillKryukov/scb/tree/master/seq-tools-c
