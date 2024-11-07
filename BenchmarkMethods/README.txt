@@ -28,8 +28,6 @@
 
 # Modify geco(1, 2, 3).c and gede(1, 2, 3).c and Jarvis.c for Memory & CPU usage
 
-# For user convenience, we are retaining all of the benchmark compressors' files (the updated file names are listed above).
-
 # Make (To Compile)
 cp Makefile.linux Makefile2.linux
 mv Makefile2.linux Makefile
@@ -222,9 +220,10 @@ ruby monitor_lfqc.rb "ruby lfqcd.rb ../DNA/IN.fastq.lfqc"
 
 Notice:
 If the executable files of the backbone compressors zpaq702 and lpaq8 does not work then, please create executable files for zpaq702 and lpaq8 using the command 'make' [You make need to fix the errors during compilation.].
----------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------
+# For user convenience, we are retaining all of the benchmark compressors' files (the updated file names are listed above).
 # We calculate CPU usage over a period of time and then give average usage; the same is true for memory usage.
----------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------
 # To change the file format, please use the code supplied in the following link:
 https://github.com/KirillKryukov/scb/tree/master/seq-tools-c
 or
