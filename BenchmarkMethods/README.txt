@@ -189,31 +189,28 @@ sh install.sh
 # To decompress:
 ./minicom -d ../DNA/IN_comp.minicom
 ---------------------------------------------------------------------------------------------------------------------------------
-#Lfqc
+# Lfqc
 # Prerequisites
 Linux system with at least 4GB of RAM (preferably 8)
 C++
 Ruby
 
 # Installation
-To measure CPU and memory usage we need a 'sys-proctable' library.
-Run the following command, if the 'sys-proctable' is not installed. 
-
+To measure CPU and memory usage we need a 'sys-proctable' library. Run the following command, if the 'sys-proctable' is not installed. 
 gem install sys-proctable
-    
-# To Compress
 
+# For memory and CPU usage, add monitor_lfqc.rb to the repository.
+
+# Go to compress
 cd lfqc/lfqc
 
-To execute this program run the following command
-
+# To compress
 ruby monitor_lfqc.rb "ruby lfqc.rb ../DNA/IN.fastq"
 
 # Note:
 Here, the monitor_lfqc.rb is the program for cpu utilization monitoring, the IN.fastq is the file to be compressed and lfqc.rb is the program for compression using LFQC algorithm.
 
-# To Decompress
-
+# To decompress
 ruby monitor_lfqc.rb "ruby lfqcd.rb ../DNA/IN.fastq.lfqc"
 
 [Note: The decompressed file will be generated in the same location and will overwrite the original file.]
