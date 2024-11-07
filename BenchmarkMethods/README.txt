@@ -118,6 +118,11 @@ time ./gzip -d ../../DNACorpus/AeCa.gz
 time ./gzip -d ../../RNA/SILVA_132_LSURef_tax_silva.fasta.gz
 ------------------------------------------------------------------------------------------------------------------------------
 # FQZComp
+
+# We have modified fqz_comp.c
+
+# Add cpuUsage.c to the repository for Memory & CPU usage
+
 # Compilation
 cp Makefile Makefile2
 mv Makefile2 Makefile
