@@ -119,7 +119,7 @@ time ./gzip -d ../../RNA/SILVA_132_LSURef_tax_silva.fasta.gz
 ------------------------------------------------------------------------------------------------------------------------------
 # FQZComp
 
-# We have modified fqz_comp.c
+# Please modified fqz_comp.c
 
 # Add cpuUsage.c to the repository for Memory & CPU usage
 
