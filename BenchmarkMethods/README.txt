@@ -20,13 +20,10 @@
 # For GeCo3: conda install -y -c bioconda geco3
 # For Jarvis: conda install -y -c bioconda jarvis
 
-# We have modified and added the following to the original codes to measure memory and CPU usage:
-
-# We have modified geco and jarvis (modify garbage in defs.h and common.c)
-
-# Add cpuUsage.c to the repository for Memory & CPU usage
-
-# Modify geco(1, 2, 3).c and gede(1, 2, 3).c and Jarvis.c for Memory & CPU usage
+# Please modify and add the following to the original codes to measure memory and CPU usage:
+1. Please modify files of compressors GeCo and Jarvis (modify garbage in defs.h and common.c)
+2. Please add cpuUsage.c to the repository for memory & CPU usage
+3. Please modify geco(1, 2, 3).c and gede(1, 2, 3).c and Jarvis.c
 
 # Make (To Compile)
 cp Makefile.linux Makefile2.linux
@@ -117,11 +114,10 @@ time ./gzip -d ../../RNA/SILVA_132_LSURef_tax_silva.fasta.gz
 ------------------------------------------------------------------------------------------------------------------------------
 # FQZComp
 
+# Please add cpuUsage.c to the repository for Memory & CPU usage
 # Please modified fqz_comp.c
 
-# Add cpuUsage.c to the repository for Memory & CPU usage
-
-# Compilation
+# Make (To Compile)
 cp Makefile Makefile2
 mv Makefile2 Makefile
 make
@@ -132,7 +128,6 @@ time ./fqz_comp -s1 -q3 ../DNA/In.fastq ../DNA/comp.fqz
 	
 # To decompress:
 time ./fqz_comp -d ../DNA/comp.fqz ../DNA/Out.fastq
-	
 time ./fqz_comp -d -X ../DNA/comp.fqz ../DNA/Out.fastq [To pass checksum failures use -X in the decompressor]
 	
 # Options:
@@ -174,8 +169,9 @@ The caveats and other informations in the original source.
 https://sourceforge.net/projects/fqzcomp/
 ---------------------------------------------------------------------------------------------------------------------------
 # Minicom
-# Please modify decompress.c, minicommain.c, and Makefile. 
+
 # For memory and CPU usage, add cpuUsage.c to the repository.
+# Please modify decompress.c, minicommain.c, and Makefile. 
 
 # To install
 cd minicom
