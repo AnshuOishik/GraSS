@@ -127,7 +127,7 @@ time ./fqz_comp -d -X ../DNA/comp.fqz ../DNA/Out.fastq [To pass checksum failure
 The caveats and other informations in the original source. 
 https://sourceforge.net/projects/fqzcomp/
 ------------------------------------------------------------------------------------------------------------------------------------
-# Lfqc
+# LFQC
 # Prerequisites
 Linux system with at least 4GB of RAM (preferably 8)
 C++, Ruby
