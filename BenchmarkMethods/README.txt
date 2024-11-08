@@ -175,12 +175,12 @@ sh install.sh
 # To decompress:
 ./minicom -d ../DNA/IN_comp.minicom
 ------------------------------------------------------------------------------------------------------------------------------------
-# Executing the state-of-the-art compressors GeCo, GeCo2, geCo3 and Jarvis:
+# Executing the state-of-the-art compressors GeCo, Jarvis, GeCo2, and GeCo3:
 
 # Install miniconda (https://docs.anaconda.com/miniconda/#quick-command-line-install) then run the following commands
+# For Jarvis: conda install -y -c bioconda jarvis
 # For GeCo2: conda install -y -c bioconda geco2
 # For GeCo3: conda install -y -c bioconda geco3
-# For Jarvis: conda install -y -c bioconda jarvis
 
 # Please modify and add the following to the original codes to measure memory and CPU usage:
 1. Please modify files of compressors GeCo and Jarvis (modify garbage in defs.h and common.c)
@@ -200,6 +200,10 @@ make clean
 ./GeCo -tm 1:1:0:0/0 -tm 3:1:0:0/0 -tm 6:1:0:0/0 -tm 9:10:0:0/0 -tm 11:10:0:0/0 -tm 13:50:1:0/0 -tm 18:100:1:3/10 -c 30 -g 0.9 CompressedFileName
 ./GeDe -v DecompressedFileName
 
+# Jarvis
+./JARVIS -v -l <level> CompressedFileName
+./JARVIS -v -d DecompressedFileName
+
 # GeCo2
 ./GeCo2 -v -l <level(or mode)> CompressedFileName
 ./GeDe2 -v DecompressedFileName
@@ -207,11 +211,6 @@ make clean
 # GeCo3
 ./GeCo3 -l <level> -lr <learning rate> -hs <hidden nodes> CompressedFileName
 ./GeDe3 DecompressedFileName
-
-# Jarvis
-./JARVIS -v -l <level> CompressedFileName
-./JARVIS -v -d DecompressedFileName
-
 -------------------------------------------------------------------------------------------------------------------------------------
 # For user convenience, we are retaining all of the benchmark compressors' files (the revised and added file names are listed above).
 # We calculate CPU usage over a period of time and then give average usage; the same is true for memory usage.
