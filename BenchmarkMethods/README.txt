@@ -213,6 +213,7 @@ make clean
 ./GeDe3 DecompressedFileName
 -------------------------------------------------------------------------------------------------------------------------------------
 # For user convenience, we are retaining all of the benchmark compressors' files (the revised and added file names are listed above).
+# We have renamed the compressor by the suffix "_with_mem_cpu", so please change the directory names accordingly.
 # We calculate CPU usage over a period of time and then give average usage; the same is true for memory usage.
 -------------------------------------------------------------------------------------------------------------------------------------
 # To change the file format, please use the code supplied in the following link:
