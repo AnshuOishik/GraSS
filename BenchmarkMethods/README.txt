@@ -1,96 +1,20 @@
 # Clone all repositories from github:
-# GeCo3: https://github.com/cobilab/geco3
-# GeCo2: https://github.com/cobilab/geco2 
-# GeCo: https://github.com/cobilab/geco
-# Jarvis: https://github.com/cobilab/jarvis
+# Gzip: https://www.gnu.org/software/gzip/
+# Zstd: https://github.com/facebook/zstd.git
 # FQZComp: https://sourceforge.net/projects/fqzcomp/
 # DSRC 2: https://github.com/lrog/dsrc
-# LQFC: https://github.com/mariusmni/lfqc
+# LFQC: https://github.com/mariusmni/lfqc
+# DSRC 2, UHT, NUHT, and DNA-COMPACT: https://calc.biokirr.com/sequence-compression-benchmark/ 
 # Minicom: https://github.com/yuansliu/minicom
-# Zstd: https://github.com/facebook/zstd.git
-# Gzip: https://www.gnu.org/software/gzip/
-# https://calc.biokirr.com/sequence-compression-benchmark/ (UHT, NUHT, DNA-COMPACT)
+# GeCo: https://github.com/cobilab/geco
+# Jarvis: https://github.com/cobilab/jarvis
+# GeCo2: https://github.com/cobilab/geco2 
+# GeCo3: https://github.com/cobilab/geco3
 
 ######### To use the above compressor, please cite the corresponding papers #########
---------------------------------------------------------------------------------------------------------------------------
-# Executing the state-of-the-art compressors GeCo, GeCo2, geCo3 and Jarvis:
-
-# Install miniconda (https://docs.anaconda.com/miniconda/#quick-command-line-install) then run the following commands
-# For GeCo2: conda install -y -c bioconda geco2
-# For GeCo3: conda install -y -c bioconda geco3
-# For Jarvis: conda install -y -c bioconda jarvis
-
-# Please modify and add the following to the original codes to measure memory and CPU usage:
-1. Please modify files of compressors GeCo and Jarvis (modify garbage in defs.h and common.c)
-2. Please add cpuUsage.c to the repository for memory & CPU usage
-3. Please modify geco(1, 2, 3).c and gede(1, 2, 3).c and Jarvis.c
-
-# Make (To Compile)
-cp Makefile.linux Makefile2.linux
-mv Makefile2.linux Makefile
-make
-
-# To clean make
-make clean
- 
-# To run
-# GeCo
-./GeCo -tm 1:1:0:0/0 -tm 3:1:0:0/0 -tm 6:1:0:0/0 -tm 9:10:0:0/0 -tm 11:10:0:0/0 -tm 13:50:1:0/0 -tm 18:100:1:3/10 -c 30 -g 0.9 CompressedFileName
-./GeDe -v DecompressedFileName
-
-# GeCo2
-./GeCo2 -v -l <level(or mode)> CompressedFileName
-./GeDe2 -v DecompressedFileName
-
-# GeCo3
-./GeCo3 -l <level> -lr <learning rate> -hs <hidden nodes> CompressedFileName
-./GeDe3 DecompressedFileName
-
-# Jarvis
-./JARVIS -v -l <level> CompressedFileName
-./JARVIS -v -d DecompressedFileName
-
----------------------------------------------------------------------------------------------------------------------------
-## Installation of Zstd
-requirements (git, linux, cmake)
-
-# clone github reposiroty
-git clone https://github.com/facebook/zstd.git
-
-# go to programs and make
-cd zstd/programs
-make
-
-# creating dictionary for speedup
-time ./zstd --train FullPathToTrainingSet/* -o dictionaryName
-eg.
-time ./zstd --train ../../../DNACorpus/* -o dictionary
-
-# compress with dictionary 
-time ./zstd -D dictionaryName FilePath
-E.g.
-time ./zstd -D dictionary ../../../DNACorpus/AeCa
-
-# compress without dictionary 
-time ./zstd -4 --ultra -22 ../../../DNACorpus/AeCa
-time ./zstd -4 --ultra -22 ../../../DNA/GCF_001884535.1
-time ./zstd -4 --ultra -22 ../../../RNA/SILVA_132_LSURef_tax_silva.fasta
-
-# decompress with dictionary, compresssed fileName is FILE.zst
-time ./zstd -D dictionaryName --decompress File.zst
-eg.
-time ./zstd -D dictionary --decompress ../../../DNACorpus/AeCa.zst
-
-# decompress without dictionary
-time ./zstd --decompress ../../../DNACorpus/AeCa.zst
-time ./zstd --decompress ../../../DNA/GCF_001884535.1.zst
-time ./zstd --decompress ../../../RNA/SILVA_132_LSURef_tax_silva.fasta.zst
----------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------
 ## Installation of Gzip
-# Gzip website
-https://www.gnu.org/software/gzip/
-
-# Download gzip latest version (gzip-1.13.tar.gz  2023-08-19  20:20  1.2M)
+# Please download gzip latest version (gzip-1.13.tar.gz  2023-08-19  20:20  1.2M)
 https://ftp.gnu.org/gnu/gzip/gzip-1.13.tar.gz
 
 # Extract files
@@ -104,20 +28,55 @@ make
 # If want to make gzip globally available run this command with sudo privilage
 sudo make install
 
-# Compress a FILE
+# To compress
 time ./gzip -9 ../../DNACorpus/AeCa
 time ./gzip -9 ../../RNA/SILVA_132_LSURef_tax_silva.fasta
 
-# decompress a FILE
+# To decompress
 time ./gzip -d ../../DNACorpus/AeCa.gz
 time ./gzip -d ../../RNA/SILVA_132_LSURef_tax_silva.fasta.gz
-------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------
+## Installation of Zstd
+requirements (git, linux, cmake)
+
+# Please create clone 
+git clone https://github.com/facebook/zstd.git
+
+# Go to programs and make
+cd zstd/programs
+make
+
+# Creating dictionary for speedup
+time ./zstd --train FullPathToTrainingSet/* -o dictionaryName
+E.g.
+time ./zstd --train ../../../DNACorpus/* -o dictionary
+
+# To compress with dictionary 
+time ./zstd -D dictionaryName FilePath
+E.g.
+time ./zstd -D dictionary ../../../DNACorpus/AeCa
+
+# To compress without dictionary 
+time ./zstd -4 --ultra -22 ../../../DNACorpus/AeCa
+time ./zstd -4 --ultra -22 ../../../DNA/GCF_001884535.1
+time ./zstd -4 --ultra -22 ../../../RNA/SILVA_132_LSURef_tax_silva.fasta
+
+# To decompress with dictionary, compresssed fileName is FILE.zst
+time ./zstd -D dictionaryName --decompress File.zst
+E.g.
+time ./zstd -D dictionary --decompress ../../../DNACorpus/AeCa.zst
+
+# To decompress without dictionary
+time ./zstd --decompress ../../../DNACorpus/AeCa.zst
+time ./zstd --decompress ../../../DNA/GCF_001884535.1.zst
+time ./zstd --decompress ../../../RNA/SILVA_132_LSURef_tax_silva.fasta.zst
+------------------------------------------------------------------------------------------------------------------------------------
 # FQZComp
 
 # Please add cpuUsage.c to the repository for Memory & CPU usage
 # Please modified fqz_comp.c
 
-# Make (To Compile)
+# Make
 cp Makefile Makefile2
 mv Makefile2 Makefile
 make
@@ -167,7 +126,35 @@ time ./fqz_comp -d -X ../DNA/comp.fqz ../DNA/Out.fastq [To pass checksum failure
 
 The caveats and other informations in the original source. 
 https://sourceforge.net/projects/fqzcomp/
----------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------
+# Lfqc
+# Prerequisites
+Linux system with at least 4GB of RAM (preferably 8)
+C++, Ruby
+
+# Installation
+To measure CPU and memory usage we need a 'sys-proctable' library. Run the following command, if the 'sys-proctable' is not installed. 
+gem install sys-proctable
+
+# For memory and CPU usage, add monitor_lfqc.rb to the repository.
+
+# Please go to the directory lfqc
+cd lfqc/lfqc
+
+# To compress
+ruby monitor_lfqc.rb "ruby lfqc.rb ../DNA/IN.fastq"
+
+# Note:
+Here, the monitor_lfqc.rb is the program for cpu utilization monitoring, the IN.fastq is the file to be compressed and lfqc.rb is the program for compression using LFQC algorithm.
+
+# To decompress
+ruby monitor_lfqc.rb "ruby lfqcd.rb ../DNA/IN.fastq.lfqc"
+
+[Note: The decompressed file will be generated in the same location and will overwrite the original file.]
+
+Notice:
+If the executable files of the backbone compressors zpaq702 and lpaq8 does not work then, please create executable files for zpaq702 and lpaq8 using the command 'make' [You make need to fix the errors during compilation.].
+-------------------------------------------------------------------------------------------------------------------------------------
 # Minicom
 
 # For memory and CPU usage, add cpuUsage.c to the repository.
@@ -187,40 +174,52 @@ sh install.sh
 
 # To decompress:
 ./minicom -d ../DNA/IN_comp.minicom
----------------------------------------------------------------------------------------------------------------------------------
-# Lfqc
-# Prerequisites
-Linux system with at least 4GB of RAM (preferably 8)
-C++
-Ruby
+------------------------------------------------------------------------------------------------------------------------------------
+# Executing the state-of-the-art compressors GeCo, GeCo2, geCo3 and Jarvis:
 
-# Installation
-To measure CPU and memory usage we need a 'sys-proctable' library. Run the following command, if the 'sys-proctable' is not installed. 
-gem install sys-proctable
+# Install miniconda (https://docs.anaconda.com/miniconda/#quick-command-line-install) then run the following commands
+# For GeCo2: conda install -y -c bioconda geco2
+# For GeCo3: conda install -y -c bioconda geco3
+# For Jarvis: conda install -y -c bioconda jarvis
 
-# For memory and CPU usage, add monitor_lfqc.rb to the repository.
+# Please modify and add the following to the original codes to measure memory and CPU usage:
+1. Please modify files of compressors GeCo and Jarvis (modify garbage in defs.h and common.c)
+2. Please add cpuUsage.c to the repository for memory & CPU usage
+3. Please modify geco(1, 2, 3).c and gede(1, 2, 3).c and Jarvis.c
 
-# Go to compress
-cd lfqc/lfqc
+# Make (To Compile)
+cp Makefile.linux Makefile2.linux
+mv Makefile2.linux Makefile
+make
 
-# To compress
-ruby monitor_lfqc.rb "ruby lfqc.rb ../DNA/IN.fastq"
+# To clean make
+make clean
+ 
+# To run
+# GeCo
+./GeCo -tm 1:1:0:0/0 -tm 3:1:0:0/0 -tm 6:1:0:0/0 -tm 9:10:0:0/0 -tm 11:10:0:0/0 -tm 13:50:1:0/0 -tm 18:100:1:3/10 -c 30 -g 0.9 CompressedFileName
+./GeDe -v DecompressedFileName
 
-# Note:
-Here, the monitor_lfqc.rb is the program for cpu utilization monitoring, the IN.fastq is the file to be compressed and lfqc.rb is the program for compression using LFQC algorithm.
+# GeCo2
+./GeCo2 -v -l <level(or mode)> CompressedFileName
+./GeDe2 -v DecompressedFileName
 
-# To decompress
-ruby monitor_lfqc.rb "ruby lfqcd.rb ../DNA/IN.fastq.lfqc"
+# GeCo3
+./GeCo3 -l <level> -lr <learning rate> -hs <hidden nodes> CompressedFileName
+./GeDe3 DecompressedFileName
 
-[Note: The decompressed file will be generated in the same location and will overwrite the original file.]
+# Jarvis
+./JARVIS -v -l <level> CompressedFileName
+./JARVIS -v -d DecompressedFileName
 
-Notice:
-If the executable files of the backbone compressors zpaq702 and lpaq8 does not work then, please create executable files for zpaq702 and lpaq8 using the command 'make' [You make need to fix the errors during compilation.].
-----------------------------------------------------------------------------------------------------------------------------------
-# For user convenience, we are retaining all of the benchmark compressors' files (the updated file names are listed above).
+-------------------------------------------------------------------------------------------------------------------------------------
+# For user convenience, we are retaining all of the benchmark compressors' files (the revised and added file names are listed above).
 # We calculate CPU usage over a period of time and then give average usage; the same is true for memory usage.
-----------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------
 # To change the file format, please use the code supplied in the following link:
 https://github.com/KirillKryukov/scb/tree/master/seq-tools-c
 or
-Supplementary Material of GeCo3
+Supplementary material of GeCo3 
+Link: https://academic.oup.com/gigascience/article/9/11/giaa119/5974977#supplementary-data
+File name: giaa119_Supplemental_File
+-------------------------------------------------------------------------------------------------------------------------------------
