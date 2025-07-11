@@ -3,6 +3,9 @@
 					https://github.com/AnshuOishik/GraSS
 						Copyright (C) 2024 
 =============================================================================================================================
+If you use GraSS then please cite the paper as: 
+Roy, S., Kumar Maity, D., & Mukhopadhyay, A. (2025). A lossless reference-free sequence compression algorithm leveraging grammatical, statistical, and substitution rules. Briefings in Functional Genomics, 24, elae050, https://doi.org/10.1093/bfgp/elae050
+=============================================================================================================================
 Introduction
 To utilize the code, please use the Notepad++ editor.
 Java has been utilized by us in the implementation.
